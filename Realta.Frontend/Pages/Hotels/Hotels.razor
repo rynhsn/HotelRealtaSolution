@@ -1,0 +1,216 @@
+﻿@page "/hotels"
+
+<section class="table-components">
+    <div class="container-fluid">
+        <div class="title-wrapper pt-30">
+        <div class="row align-items-center">
+            <div class="col-md-6">
+            <div class="title mb-30">
+                <h2>Hotels</h2>
+            </div>
+            </div>
+            <!-- end col -->
+            <div class="col-md-6">
+            <div class="breadcrumb-wrapper mb-30">
+                <nav aria-label="breadcrumb">
+                <ol class="breadcrumb">
+                    <li class="breadcrumb-item">
+                    <a href="#0">Dashboard</a>
+                    </li>
+                    <li class="breadcrumb-item active" aria-current="page">
+                    Hotels
+                    </li>
+                </ol>
+                </nav>
+            </div>
+            </div>
+
+            <!-- end col -->
+            </div>
+            <!-- end row -->
+        </div>
+
+        
+
+        <div class="card-style ">
+            <div class="d-flex justify-content-center">
+                    <div class="search d-md-flex">
+                        <div class="input-style-3 mx-auto">
+                            <input type="search" class="form-control h-50 d-inline-block w-100" placeholder="Search Hotel" aria-label="Search" aria-describedby="search-addon" />
+                            <span class="icon">
+                                <button class="btn 
+                                               border-0 
+                                               lni lni-search-alt
+                                               position-absolute top-40 start-50 translate-middle">
+                                </button>
+                            </span>
+                        </div>
+                        <div class="mx-auto">
+                            <button type="button" class="btn btn-primary h-10 ml-5 align-content-center">
+                                <i class="mdi mdi-home-search-outline"></i>search
+                            </button>
+                        </div>
+                    </div>
+            </div>
+            
+            <!-- End Title -->
+            <div class="table-responsive">
+                <table class="table top-selling-table">
+                    <thead>
+                        <tr>
+                        <th>
+                            <h6 class="text-sm text-medium">Id</h6>
+                        </th>
+                        <th class="min-width">
+                            <h6 class="text-sm text-medium">
+                                Hotel Name 
+                                <i class="lni lni-arrows-vertical"></i>
+                            </h6>
+                        </th>
+                        <th class="min-width">
+                            <h6 class="text-sm text-medium">
+                                Rating Star 
+                                <i class="lni lni-arrows-vertical"></i>
+                            </h6>
+                        </th>
+                        <th class="min-width">
+                            <h6 class="text-sm text-medium">
+                                Phone Number <i class="lni lni-arrows-vertical"></i>
+                            </h6>
+                        </th>
+                        <th class="min-width">
+                            <h6 class="text-sm text-medium">
+                                Status <i class="lni lni-arrows-vertical"></i>
+                            </h6>
+                        </th>
+                        <th class="min-width">
+                            <h6 class="text-sm text-medium">
+                                Modified Date <i class="lni lni-arrows-vertical"></i>
+                            </h6>
+                        </th>
+                        <th>
+                            <div class="action justify-content-end" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
+                                <a href="#0" class="main-btn dark-btn-outline rounded-btn p-2">
+                                <i class="mdi mdi-home-plus"></i> Add</a>
+                            </div>
+                        </th>
+                        </tr>
+                    </thead>
+
+
+                    <tbody>
+
+                        <tr>
+                        <td>
+                            <p class="text-sm">1</p>
+                        </td>
+                        <td>
+                            <p class="text-sm">Grand Livina Malang</p>
+                        </td>
+                        <td>
+                            <span class="mdi mdi-star"></span>
+                            <span class="mdi mdi-star"></span>
+                            <span class="mdi mdi-star"></span>
+                            <span class="mdi mdi-star"></span>
+                            <span class="mdi mdi-star-outline"></span>
+                        </td>
+                        <td>
+                            <p class="text-sm">+62 857 0718 0167</p>
+                        </td>
+                        <td>
+                            <span class="status-btn active-btn">Active</span>
+                        </td>
+                        <td>
+                            <p class="text-sm">7-Mei-2023</p>
+                        </td>
+                        <td>
+                            <div class="action justify-content-end">
+                            <button class="more-btn ml-10 dropdown-toggle" id="moreAction1" data-bs-toggle="dropdown" aria-expanded="false">
+                                <i class="lni lni-more-alt"></i>
+                            </button>
+                            <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="moreAction1">
+                                <li class="dropdown-item">
+                                <a href="#0" class="text-gray">Edit</a>
+                                </li>
+                                <li class="dropdown-item">
+                                <a href="#0" class="text-gray">Add Facilities</a>
+                                </li>
+                                <li class="dropdown-item">
+                                <a href="#0" class="text-gray">Switch Status</a>
+                                </li>
+                            </ul>
+                            </div>
+                        </td>
+                        </tr>
+
+
+                        <tr>
+                        <td>
+                            <p class="text-sm">2</p>
+                        </td>
+                        <td>
+                            <p class="text-sm">Blibis Palembang</p>
+                        </td>
+                        <td>
+                            <span class="mdi mdi-star"></span>
+                            <span class="mdi mdi-star-outline"></span>
+                            <span class="mdi mdi-star-outline"></span>
+                            <span class="mdi mdi-star-outline"></span>
+                            <span class="mdi mdi-star-outline"></span>
+                        </td>
+                        <td>
+                            <p class="text-sm">+62 857 1234 3214</p>
+                        </td>
+                        <td>
+                            <span class="status-btn close-btn">Disactive</span>
+                        </td>
+                        <td>
+                            <p class="text-sm">2-Mei-2023</p>
+                        </td>
+                        <td>
+                            <div class="action justify-content-end">
+                            <button class="more-btn ml-10 dropdown-toggle" id="moreAction1" data-bs-toggle="dropdown" aria-expanded="false">
+                                <i class="lni lni-more-alt"></i>
+                            </button>
+                            <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="moreAction1">
+                                <li class="dropdown-item">
+                                <a href="#0" class="text-gray">Edit</a>
+                                </li>
+                                <li class="dropdown-item">
+                                <a href="#0" class="text-gray">Add Facilities</a>
+                                </li>
+                                <li class="dropdown-item">
+                                <a href="#0" class="text-gray">Switch Status</a>
+                                </li>
+                            </ul>
+                            </div>
+                        </td>
+                        </tr>
+
+                    </tbody>
+                </table>
+                <!-- End Table -->
+            </div>
+        </div>
+    </div>
+</section>
+
+
+<!-- Modal -->
+<div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="staticBackdropLabel">Create Hotel</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        ...
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-primary">Create</button>
+      </div>
+    </div>
+  </div>
+</div>
