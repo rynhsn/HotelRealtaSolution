@@ -147,35 +147,80 @@
 
 
 <!-- Modal Edit -->
-<div class="modal fade" id="edit" tabindex="-1" aria-labelledby="EditLabel" aria-hidden="true">
+<div class="modal modal-lg fade" id="edit" tabindex="-1" aria-labelledby="EditLabel" aria-hidden="true">
     <div class="modal-dialog">
-        <div class="modal-content">
+        <form class="modal-content" action="" method="post">
             <div class="modal-header">
-                <h5 class="modal-title" id="exampleModalLabel">Edit Vendor</h5>
+                <h5 class="modal-title" id="EditLabel">Edit Vendor</h5>
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             <div class="modal-body">
-                <div class="input-group mb-3">
-                    <span class="input-group-text" id="inputGroup-sizing-default">Default</span>
-                    <input type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default">
-                </div>
-            </div>
-            <div class="modal-body">
-                <div class="input-group mb-3">
-                    <span class="input-group-text" id="inputGroup-sizing-default">Default</span>
-                    <input type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default">
-                </div>
-            </div>
-            <div class="modal-body">
-                <div class="input-group mb-3">
-                    <span class="input-group-text" id="inputGroup-sizing-default">Default</span>
-                    <input type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default">
+                <div class="row">
+                    <div class="input-style-1 col-6 rounded-sm">
+                        <label>Vendor Name</label>
+                        <div class="select-position">
+                            <input type="text"/>
+                        </div>
+                    </div>
+                    <div class="input-style-1 col-6 rounded-sm">
+                        <label for="exampleDate" class="form-label">Register Date</label>
+                         <input type="date" class="form-control" id="exampleDate">
+                    </div>
+                    <div class="select-style-1 col-6 rounded-sm">
+                        <label>Status</label>
+                        <div class="select-position">
+                            <select>
+                                <option value="1">Active</option>
+                                <option value="0">InActive</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="select-style-1 col-6 rounded-sm">
+                        <label>Priority</label>
+                        <div class="select-position">
+                            <select>
+                                <option value="1">1=Highest</option>
+                                <option value="0">0=Lowest</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="input-style-1 col-8 rounded-sm">
+                        <label>Website</label>
+                        <div class="select-position">
+                            <input type="text" placeholder="URL..."/>
+                        </div>
+                    </div>
                 </div>
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                <button type="button" class="btn btn-primary">Save changes</button>
+                <button type="submit" class="btn btn-primary">Save</button>
             </div>
-        </div>
+
+
+            @*<form class="row g-3 needs-validation mt-8" novalidate>*@
+                @*<div class="col-md-4 mx-4 mt-9">
+                    <label for="validationCustom01" class="form-label">First name</label>
+                    <input type="text" class="form-control" id="validationCustom01" required>
+                </div>
+
+                <div class="col-md-4 mx-4 mt-9">
+                    <label for="validationCustom02" class="form-label">Last name</label>
+                    <input type="text" class="form-control" id="validationCustom02" required>
+                </div>
+
+                <div class="col-md-4 mx-4">
+                    <label for="validationCustom03" class="form-label">City</label>
+                    <input type="text" class="form-control" id="validationCustom03" required>
+                </div>
+
+                <div class="col-md-6 mb-4">
+                    <label for="validationCustom04" class="form-label">Status</label>
+                    <select class="form-select" id="status" required>
+                        <option value="1">1=High</option>
+                        <option value="0">0=Lowest</option>
+                    </select>
+                </div>*@
+        </form>
     </div>
 </div>
