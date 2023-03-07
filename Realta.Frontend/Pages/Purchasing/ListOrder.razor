@@ -1,0 +1,120 @@
+﻿@page "/purchasing/list-order"
+@using Realta.Frontend.Components
+
+<PageTitle>Purchase Order</PageTitle>
+
+<section class="table-components">
+    <div class="container-fluid">
+        <!-- ========== title-wrapper start ========== -->
+        <div class="title-wrapper pt-30">
+            <div class="row align-items-center">
+                <div class="col-md-6">
+                    <div class="title mb-30">
+                        <h2>Purchasing Order</h2>
+                    </div>
+                </div>
+                <!-- end col -->
+                <div class="col-md-6">
+                    <div class="breadcrumb-wrapper mb-30">
+                        <nav aria-label="breadcrumb">
+                            <ol class="breadcrumb">
+                                <li class="breadcrumb-item">
+                                    <a href="/purchasing">Purchasing</a>
+                                </li>
+                                <li class="breadcrumb-item active" aria-current="page">
+                                    Purchasing Order
+                                </li>
+                            </ol>
+                        </nav>
+                    </div>
+                </div>
+                <!-- end col -->
+            </div>
+            <!-- end row -->
+        </div>
+        <!-- ========== title-wrapper end ========== -->
+        <!-- ========== tables-wrapper start ========== -->
+        <div class="tables-wrapper">
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="card-style mb-30">
+                        <h6 class="mb-10">Purchasing Order</h6>
+                        <div class="row">
+                            <SearchForm/>
+                            <div class="select-style-1 col-2">
+                                <div class="select-position">
+                                    <select>
+                                        <option value="" readonly disabled selected>Status</option>
+                                        <option value="">Pending</option>
+                                        <option value="">Approve</option>
+                                        <option value="">Receive</option>
+                                        <option value="">Reject</option>
+                                        <option value="">Complete</option>
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="table-wrapper table-responsive">
+                            <table class="table">
+                                <thead>
+                                    <tr>
+                                        <th><h6>#</h6></th>
+                                        <th><h6>PO Number</h6></th>
+                                        <th><h6>PO Date</h6></th>
+                                        <th><h6>Vendor Target</h6></th>
+                                        <th><h6>Line Items</h6></th>
+                                        <th><h6>Total Amount</h6></th>
+                                        <th><h6>Status</h6></th>
+                                        <th><h6>Action</h6></th>
+                                    </tr>
+                                    <!-- end table row-->
+                                </thead>
+                                <tbody>
+                                @for (int i = 1; i <= 5; i++)
+                                {
+                                    <tr>
+                                        <td class="min-width">
+                                            <p>@i</p>
+                                        </td>
+                                        <td class="min-width">
+                                            <p>PO-202303-00 @i</p>
+                                        </td>
+                                        <td class="min-width">
+                                            <p>2023-03-01</p>
+                                        </td>
+                                        <td class="min-width">
+                                            <p><a href="#0">Cocoalici LLC</a></p>
+                                        </td>
+                                        <td class="min-width">
+                                            <p>2</p>
+                                        </td>
+                                        <td class="min-width">
+                                            <p>IDR 5,000,000.00</p>
+                                        </td>
+                                        <td class="min-width">
+                                            <span class="status-btn success-btn">Pending</span>
+                                        </td>
+                                        <td>
+                                            <div class="action">
+                                                <button class="text-danger">
+                                                    <i class="lni lni-trash-can"></i>
+                                                </button>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                }
+                                </tbody>
+                            </table>
+                            <!-- end table -->
+                        </div>
+                    </div>
+                    <!-- end card -->
+                </div>
+                <!-- end col -->
+            </div>
+            <!-- end row -->
+        </div>
+        <!-- ========== tables-wrapper end ========== -->
+    </div>
+    <!-- end container -->
+</section>
