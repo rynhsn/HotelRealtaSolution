@@ -1,5 +1,4 @@
 ﻿@page "/purchasing/list-order"
-@using Realta.Frontend.Components
 
 <PageTitle>Purchase Order</PageTitle>
 
@@ -38,7 +37,7 @@
             <div class="row">
                 <div class="col-lg-12">
                     <div class="card-style mb-30">
-                        <form class="row">
+                        <form class="row" action="" method="post">
                             <div class="search col-4">
                                 <div class="input-style-3 rounded-5">
                                     <input type="text" placeholder="PO Number / Vendor Name">
@@ -107,9 +106,9 @@
                                                 <ul class="dropdown-menu">
                                                     <li><a class="dropdown-item btn btn-sm" href="#">Details</a></li>
                                                     <li><hr class="dropdown-divider"></li>
-                                                    <li><button class="dropdown-item btn btn-sm" data-bs-toggle="modal" data-bs-target="#detail">Switch status</button></li>
+                                                    <li><button class="dropdown-item btn btn-sm" data-bs-toggle="modal" data-bs-target="#detail[@i]">Switch status</button></li>
                                                     <li><hr class="dropdown-divider"></li>
-                                                    <li><a class="dropdown-item btn btn-sm text-danger" href="#">Delete</a></li>
+                                                        <li><button class="dropdown-item btn btn-sm" data-bs-toggle="modal" data-bs-target="#delete[@i]">Delete</button></li>
                                                 </ul>
                                             </div>
                                         </td>
@@ -131,16 +130,31 @@
     <!-- end container -->
 </section>
 
-<!-- Modal -->
-<div class="modal fade" id="detail" tabindex="-1" aria-labelledby="detailLabel" aria-hidden="true">
+@for (int i = 1; i <= @TotalRows; i++)
+{   
+<!-- Update Status Modal -->
+<div class="modal fade" id="detail[@i]" tabindex="-1" aria-labelledby="detail[@i]Label" aria-hidden="true">
     <div class="modal-dialog">
         <div class="modal-content">
             <div class="modal-header">
-                <h5 class="modal-title" id="detailLabel">Modal title</h5>
+                <h5 class="modal-title" id="detail[@i]Label">Switch status</h5>
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             <div class="modal-body">
-                ...
+                <form class="row" action="" method="post">
+                    <div class="select-style-1 col-3 rounded-sm">
+                        <label>Delete Purchase Order</label>
+                        <div class="select-position">
+                            <select>
+                                <option value="1">Pending</option>
+                                <option value="2">Approve</option>
+                                <option value="3">Receive</option>
+                                <option value="4">Reject</option>
+                                <option value="5">Complete</option>
+                            </select>
+                        </div>
+                    </div>
+                </form>
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
@@ -149,3 +163,7 @@
         </div>
     </div>
 </div>
+}
+@code{
+    public int TotalRows { get; set; } = 10;
+}
