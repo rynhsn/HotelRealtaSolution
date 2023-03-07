@@ -1,5 +1,4 @@
 ﻿@page "/purchasing/list-order"
-@using Realta.Frontend.Components
 
 <PageTitle>Purchase Order</PageTitle>
 
@@ -10,7 +9,7 @@
             <div class="row align-items-center">
                 <div class="col-md-6">
                     <div class="title mb-30">
-                        <h2>Purchasing Order</h2>
+                        <h2>Purchase Order</h2>
                     </div>
                 </div>
                 <!-- end col -->
@@ -19,10 +18,13 @@
                         <nav aria-label="breadcrumb">
                             <ol class="breadcrumb">
                                 <li class="breadcrumb-item">
+                                    <a href="/">Dashboard</a>
+                                </li>
+                                <li class="breadcrumb-item">
                                     <a href="/purchasing">Purchasing</a>
                                 </li>
                                 <li class="breadcrumb-item active" aria-current="page">
-                                    Purchasing Order
+                                    Purchase Order
                                 </li>
                             </ol>
                         </nav>
@@ -38,7 +40,7 @@
             <div class="row">
                 <div class="col-lg-12">
                     <div class="card-style mb-30">
-                        <form class="row">
+                        <form class="row" action="" method="post">
                             <div class="search col-4">
                                 <div class="input-style-3 rounded-5">
                                     <input type="text" placeholder="PO Number / Vendor Name">
@@ -50,10 +52,10 @@
                                     <select>
                                         <option value="" selected>Semua Status</option>
                                         <option value="1">Pending</option>
-                                        <option value="2">Approve</option>
-                                        <option value="3">Receive</option>
-                                        <option value="4">Reject</option>
-                                        <option value="5">Complete</option>
+                                        <option value="2">Approved</option>
+                                        <option value="3">Received</option>
+                                        <option value="4">Rejected</option>
+                                        <option value="5">Completed</option>
                                     </select>
                                 </div>
                             </div>
@@ -71,45 +73,37 @@
                                         <th><h6>Vendor Target</h6></th>
                                         <th><h6>Line Items</h6></th>
                                         <th><h6>Total Amount</h6></th>
-                                        <th><h6>Status</h6></th>
+                                        <th class="text-center"><h6>Status</h6></th>
                                         <th><h6></h6></th>
                                     </tr>
                                     <!-- end table row-->
                                 </thead>
                                 <tbody>
-                                @for (int i = 1; i <= 5; i++)
+                                @for (int i = 1; i <= @Totaldata; i++)
                                 {
                                     <tr>
-                                        <td class="min-width">
-                                            <p>@i</p>
-                                        </td>
-                                        <td class="min-width">
-                                            <p>PO-202303-00 @i</p>
-                                        </td>
-                                        <td class="min-width">
-                                            <p>2023-03-01</p>
-                                        </td>
-                                        <td class="min-width">
-                                            <p>Cocoalici LLC</p>
-                                        </td>
-                                        <td class="min-width">
-                                            <p>2</p>
-                                        </td>
-                                        <td class="min-width">
-                                            <p>IDR 5,000,000.00</p>
-                                        </td>
-                                        <td class="min-width">
+                                        <td class="min-width"><p>@i</p></td>
+                                        <td class="min-width"><p>PO-202303-00 @i</p></td>
+                                        <td class="min-width"><p>2023-03-01</p></td>
+                                        <td class="min-width"><p>Cocoalici LLC</p></td>
+                                        <td class="min-width"><p>2</p></td>
+                                        <td class="min-width"><p>IDR 5,000,000.00</p></td>
+                                        <td class="min-width text-center">
                                             <span class="status-btn success-btn">Pending</span>
                                         </td>
                                         <td>
                                             <div class="dropdown me-1">
-                                                <i class="btn lni lni-more-alt dropdown-toggle" data-bs-toggle="dropdown"></i>
+                                                <i class="btn lni lni-more-alt dropdown-toggle" data-bs-toggle="dropdown" data-bs-po="@i"></i>
                                                 <ul class="dropdown-menu">
                                                     <li><a class="dropdown-item btn btn-sm" href="#">Details</a></li>
+
                                                     <li><hr class="dropdown-divider"></li>
-                                                    <li><button class="dropdown-item btn btn-sm" data-bs-toggle="modal" data-bs-target="#detail">Switch status</button></li>
+                                                    
+                                                    <li><button class="dropdown-item btn btn-sm" data-bs-toggle="modal" data-bs-target="#detail[@i]">Switch status</button></li>
+                                                    
                                                     <li><hr class="dropdown-divider"></li>
-                                                    <li><a class="dropdown-item btn btn-sm text-danger" href="#">Delete</a></li>
+                                                    
+                                                        <li><button class="dropdown-item btn btn-sm text-danger" data-bs-toggle="modal" data-bs-target="#delete[@i]">Delete</button></li>
                                                 </ul>
                                             </div>
                                         </td>
@@ -131,16 +125,30 @@
     <!-- end container -->
 </section>
 
-<!-- Modal -->
-<div class="modal fade" id="detail" tabindex="-1" aria-labelledby="detailLabel" aria-hidden="true">
+@for (int i = 1; i <= @Totaldata; i++)
+{   
+<!-- Update Status Modal -->
+<div class="modal fade" id="detail[@i]" tabindex="-1" aria-labelledby="detail[@i]Label" aria-hidden="true">
     <div class="modal-dialog">
         <div class="modal-content">
             <div class="modal-header">
-                <h5 class="modal-title" id="detailLabel">Modal title</h5>
+                <h5 class="modal-title" id="detail[@i]Label">Switch status</h5>
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             <div class="modal-body">
-                ...
+                <label class="mb-2">Purchase Order Status PO-202303003-00 @i</label>
+                <form class="row" action="" method="post">
+                    <div class="select-style-1 rounded-sm">
+                        <div class="select-position">
+                            <select>
+                                <option value="2">Approve</option>  
+                                <option value="3">Receive</option>
+                                <option value="4">Reject</option>
+                                <option value="5">Complete</option>
+                            </select>
+                        </div>
+                    </div>
+                </form>
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
@@ -149,3 +157,30 @@
         </div>
     </div>
 </div>
+}
+
+@for (int i = 1; i <= @Totaldata; i++)
+{
+<!-- Delete Modal -->
+<div class="modal fade" id="delete[@i]" tabindex="-1" aria-labelledby="delete[@i]Label" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="delete[@i]Label">Delete Purchase Order</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                    <p>Purchase order with PO Number: PO-202303003-00 @i will be deleted, are you sure?</p>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                <button type="button" class="btn btn-danger">Delete</button>
+            </div>
+        </div>
+    </div>
+</div>
+}
+
+@code{
+    public int Totaldata { get; set; } = 15;
+}
