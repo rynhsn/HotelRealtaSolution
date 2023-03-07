@@ -1,4 +1,4 @@
-﻿@page "/banks"
+﻿@page "/accounts"
 
 <section class="table-components">
         <div class="container-fluid">
@@ -7,7 +7,7 @@
             <div class="row align-items-center">
               <div class="col-md-6">
                 <div class="title mb-30">
-                  <h2>Bank</h2>
+                  <h2>Account</h2>
                 </div>
               </div>
               <!-- end col -->
@@ -19,7 +19,7 @@
                         <a href="#">Dashboard</a>
                       </li>
                       <li class="breadcrumb-item active" aria-current="page">
-                        Banks
+                        Accounts
                       </li>
                     </ol>
                   </nav>
@@ -36,34 +36,39 @@
             <div class="row">
               <div class="col-lg-12">
                 <div class="card-style mb-30">
-                  <h6 class="mb-10">Daftar Bank</h6>
+                  <h6 class="mb-10">Daftar Account</h6>
                   <p class="text-sm mb-20">
-                    Informasi tentang daftar bank.
+                    Informasi tentang daftar account.
                   </p>
                   <div class="table-wrapper table-responsive">
                     <table class="table">
                       <thead>
                         <tr>
                           <th><h6>#</h6></th>
-                          <th><h6>Code</h6></th>
-                          <th><h6>Name</h6></th>
+                          <th><h6>Account Number</h6></th>
+                          <th><h6>Payment</h6></th>
+                          <th><h6>Saldo</h6></th>
+                          <th><h6>Type</h6></th>
                           <th><h6><a href="#">Add +</a></h6></th>
                         </tr>
                         <!-- end table row-->
                       </thead>
                       <tbody>
                         <tr>
-                          <td>
-                             <p>1</p>
+                          <td class="min-width">
+                            <p>1</p>
                           </td>
                           <td class="min-width">
-                             <p>002</p>
+                            <p>131-3456-78</p>
+                          </td>
+                            <td class="min-width">
+                              <p>BANK BRI</p>
+                            </td>
+                          <td class="min-width">
+                            <p>Rp. 10,000,000</p>
                           </td>
                           <td class="min-width">
-                            <p>BANK BRI</p>
-                          </td>
-                          <td>
-                            <ActionPopup />
+                            <p>Debet</p>
                           </td>
                         </tr>
                         <!-- end table row -->
