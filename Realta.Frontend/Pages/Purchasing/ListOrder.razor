@@ -83,7 +83,7 @@
                                             <p>@i</p>
                                         </td>
                                         <td class="min-width">
-                                            <p>PO-202303-00 @i</p>
+                                            <p>PO-20230303-00 @i</p>
                                         </td>
                                         <td class="min-width">
                                             <p>2023-03-01</p>
@@ -108,7 +108,7 @@
                                                     <li><hr class="dropdown-divider"></li>
                                                     <li><button class="dropdown-item btn btn-sm" data-bs-toggle="modal" data-bs-target="#detail[@i]">Switch status</button></li>
                                                     <li><hr class="dropdown-divider"></li>
-                                                        <li><button class="dropdown-item btn btn-sm" data-bs-toggle="modal" data-bs-target="#delete[@i]">Delete</button></li>
+                                                    <li><button class="dropdown-item btn btn-sm text-danger" data-bs-toggle="modal" data-bs-target="#delete[@i]">Delete</button></li>
                                                 </ul>
                                             </div>
                                         </td>
@@ -118,6 +118,19 @@
                             </table>
                             <!-- end table -->
                         </div>
+                        <nav aria-label="Page navigation example">
+                            <ul class="pagination justify-content-end">
+                                <li class="page-item disabled">
+                                    <a class="page-link" href="#" tabindex="-1" aria-disabled="true">Previous</a>
+                                </li>
+                                <li class="page-item"><a class="page-link" href="#">1</a></li>
+                                <li class="page-item"><a class="page-link" href="#">2</a></li>
+                                <li class="page-item"><a class="page-link" href="#">3</a></li>
+                                <li class="page-item">
+                                    <a class="page-link" href="#">Next</a>
+                                </li>
+                            </ul>
+                        </nav>
                     </div>
                     <!-- end card -->
                 </div>
@@ -135,35 +148,58 @@
 <!-- Update Status Modal -->
 <div class="modal fade" id="detail[@i]" tabindex="-1" aria-labelledby="detail[@i]Label" aria-hidden="true">
     <div class="modal-dialog">
-        <div class="modal-content">
+        <form class="modal-content" action="" method="post">
             <div class="modal-header">
                 <h5 class="modal-title" id="detail[@i]Label">Switch status</h5>
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             <div class="modal-body">
-                <form class="row" action="" method="post">
-                    <div class="select-style-1 col-3 rounded-sm">
-                        <label>Delete Purchase Order</label>
-                        <div class="select-position">
-                            <select>
-                                <option value="1">Pending</option>
-                                <option value="2">Approve</option>
-                                <option value="3">Receive</option>
-                                <option value="4">Reject</option>
-                                <option value="5">Complete</option>
-                            </select>
-                        </div>
+                <div class="select-style-1 col rounded-sm">
+                    <label>Purchase Order Status</label>
+                    <div class="select-position">
+                        <select>
+                            <option value="1">Pending</option>
+                            <option value="2">Approve</option>
+                            <option value="3">Receive</option>
+                            <option value="4">Reject</option>
+                            <option value="5">Complete</option>
+                        </select>
                     </div>
-                </form>
+                </div>
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                <button type="button" class="btn btn-primary">Save changes</button>
+                <button type="submit" class="btn btn-primary">Save changes</button>
             </div>
-        </div>
+        </form>
     </div>
 </div>
 }
+
+@for (int i = 1; i <= @TotalRows; i++)
+{
+<!-- Update Status Modal -->
+<div class="modal fade" id="delete[@i]" tabindex="-1" aria-labelledby="delete[@i]Label" aria-hidden="true">
+    <div class="modal-dialog">
+        <form class="modal-content" action="" method="post">
+            <div class="modal-header">
+                <h5 class="modal-title" id="delete[@i]Label">Delete Purchase Order</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <p>Purchase Order with PO Number: PO-20230303-00 @i will be deleted</p>
+                <p>data that has been deleted cannot be recovered</p>
+                <p>Are you sure?</p>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                <button type="submit" class="btn btn-danger">Delete</button>
+            </div>
+        </form>
+    </div>
+</div>
+}
+
 @code{
     public int TotalRows { get; set; } = 10;
 }
