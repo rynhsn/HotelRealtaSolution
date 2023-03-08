@@ -17,5 +17,7 @@ namespace Realta.Frontend.Pages.Purchasing
             stocksList = await StocksRepo.GetStocks();
 
         }
+
+        
     }
 }

@@ -1,6 +1,7 @@
 ﻿@page "/purchasing/stocks"
 
 @using Realta.Frontend.Components
+@using Realta.Frontend.Pages
 
 <PageTitle>Stocks</PageTitle>
 
@@ -46,6 +47,9 @@
                                     <button class="btn icon"><i class="lni lni-search-alt"></i></button>
                                 </div>
                             </div>
+                            <div class="col">
+                                <a href="#0" class="main-btn dark-btn rounded-md btn-hover">Search</a>
+                            </div>
                             <div class="select-style-1 col-3 rounded-sm">
                                 <div class="select-position">
                                     <select>
@@ -54,13 +58,70 @@
                                     </select>
                                 </div>
                             </div>
-                            <div class="col">
-                                <a href="#0" class="main-btn dark-btn rounded-md btn-hover">Search</a>
-                            </div>
                         </form>
                         <div class="table-wrapper table-responsive">
-                           
-                            <Table Stocks="stocksList"/>
+                           <table class="table">
+                                <thead>
+                                    <tr>
+                                        <th><h6>Stock</h6></th>
+                                        <th><h6>Re-OrderPoint</h6></th>
+                                        <th><h6>Qty</h6></th>
+                                        <th><h6>Used</h6></th>
+                                        <th><h6>Scrap</h6></th>
+                                        <th><h6>Size - Color</h6></th>
+                                        <th class="min-width">
+                                            <h6 class="text-lg text-medium">
+                                                <button style="border: 0; background-color: transparent;" data-bs-toggle="modal" data-bs-target="#createStock">
+                                                    <b>+ Add</b>
+                                                </button>
+                                            </h6>
+                                        </th>
+                                    </tr>
+                                    <!-- end table row-->
+                                </thead>
+                                <tbody>
+                                    @if (stocksList.Count > 0)
+                                    {
+                                        @foreach (var stocks in stocksList)
+                                        {
+                                            <tr>
+                                                <td class="min-width">
+                                                    <p>@stocks.StockName</p>
+                                                </td>
+                                                <td class="min-width">
+                                                    <p>@stocks.StockReorderPoint</p>
+                                                </td>
+                                                <td class="min-width">
+                                                    <p>@stocks.StockQuantity</p>
+                                                </td>
+                                                <td class="min-width">
+                                                    <p>@stocks.StockUsed</p>
+                                                </td>
+                                                <td class="min-width">
+                                                    <p>@stocks.StockScrap</p>
+                                                </td>
+                                                <td class="min-width">
+                                                    <p>@stocks.StockSize - @stocks.StockColor</p>
+                                                </td>
+                                                <td>
+                                                    <div class="dropdown me-1">
+                                                        <i class="btn lni lni-more-alt dropdown-toggle" data-bs-toggle="dropdown"></i>
+                                                        <ul class="dropdown-menu">
+                                                            <li><button class="dropdown-item btn btn-sm" data-bs-toggle="modal" data-bs-target="#">Edit</button></li>
+                                                            <li><hr class="dropdown-divider"></li>
+                                                            <li><button class="dropdown-item btn btn-sm" data-bs-toggle="modal" data-bs-target="#">Upload Foto</button></li>
+                                                            <li><hr class="dropdown-divider"></li>
+                                                            <li><a class="dropdown-item btn btn-sm text-danger" href="#">Delete</a></li>
+                                                            <li><hr class="dropdown-divider"></li>
+                                                            <li><NavLink class="dropdown-item btn btn-sm" href="/">Detail Info Stock</NavLink></li>
+                                                        </ul>
+                                                    </div>
+                                                </td>
+                                            </tr>
+                                        }
+                                    }
+                                </tbody>
+                            </table>
                             <!-- end table -->
                         </div>
                     </div>
@@ -74,4 +135,134 @@
     </div>
     <!-- end container -->
 </section>
+
+<div class="modal fade" id="createStock" aria-labelledby="createStockLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <form class="modal-content" action="" method="post">
+            <div class="modal-header">
+                <h5 class="modal-title" id="createStockLabel">Create Stock</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <div class="row">
+                    <div class="col-8">
+                        <div class="input-style-1">
+                            <label>Stock</label>
+                            <input type="text">
+                        </div>
+                    </div>
+                    <div class="col-4">
+                        <div class="input-style-1">
+                            <label>Re-Order Point</label>
+                            <input type="number">
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-4">
+                        <div class="input-style-1">
+                            <label>Quantity</label>
+                            <input type="number">
+                        </div>
+                    </div>
+                    <div class="col-4">
+                        <div class="input-style-1">
+                            <label>Used</label>
+                            <input type="number">
+                        </div>
+                    </div>
+                    <div class="col-4">
+                        <div class="input-style-1">
+                            <label>Scrap</label>
+                            <input type="number">
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-6">
+                        <div class="input-style-1">
+                            <label>Size</label>
+                            <input type="text">
+                        </div>
+                    </div>
+                    <div class="col-6">
+                        <div class="input-style-1">
+                            <label>Color</label>
+                            <input type="text">
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                <button type="submit" class="btn btn-primary">Save changes</button>
+            </div>
+        </form>
+    </div>
+</div>
+
+<div class="modal fade" id="editStock" aria-labelledby="editStockLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <form class="modal-content" action="" method="post">
+            <div class="modal-header">
+                <h5 class="modal-title" id="editStockLabel">Edit Stock</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <div class="row">
+                    <div class="col-8">
+                        <div class="input-style-1">
+                            <label>Stock</label>
+                            <input type="text">
+                        </div>
+                    </div>
+                    <div class="col-4">
+                        <div class="input-style-1">
+                            <label>Re-Order Point</label>
+                            <input type="number">
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-4">
+                        <div class="input-style-1">
+                            <label>Quantity</label>
+                            <input type="number">
+                        </div>
+                    </div>
+                    <div class="col-4">
+                        <div class="input-style-1">
+                            <label>Used</label>
+                            <input type="number">
+                        </div>
+                    </div>
+                    <div class="col-4">
+                        <div class="input-style-1">
+                            <label>Scrap</label>
+                            <input type="number">
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-6">
+                        <div class="input-style-1">
+                            <label>Size</label>
+                            <input type="text">
+                        </div>
+                    </div>
+                    <div class="col-6">
+                        <div class="input-style-1">
+                            <label>Color</label>
+                            <input type="text">
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                <button type="submit" class="btn btn-primary">Save changes</button>
+            </div>
+        </form>
+    </div>
+</div>
 
