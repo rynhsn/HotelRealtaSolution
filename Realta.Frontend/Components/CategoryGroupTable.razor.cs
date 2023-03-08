@@ -1,6 +1,11 @@
-﻿namespace Realta.Frontend.Components
+﻿using Microsoft.AspNetCore.Components;
+using Realta.Contract.Models;
+
+namespace Realta.Frontend.Components
 {
-    public class CategoryGroupTable
+    public partial class CategoryGroupTable
     {
+        [Parameter]
+        public List<CategoryGroupDto> CategoryGroups { get; set; }
     }
 }

@@ -1,0 +1,42 @@
+﻿@if (CategoryGroups.Count > 0)
+{
+<table class="table">
+    <thead>
+        <tr class="align-content-lg-stretch">
+            <th><h6>Category Id</h6></th>
+            <th><h6>Category Name</h6></th>
+            <th><h6>Type</h6></th>
+            <th>
+                <div class="action" data-bs-toggle="modal" data-bs-target="#addcagro">
+                    <button type="button" class="text-dark">
+                        <i class="lni lni-plus"></i>
+                    </button>
+                </div>
+            </th>
+        </tr>
+        <!-- end table row-->
+    </thead>
+    <tbody>
+        @foreach (var categorygroup in CategoryGroups)
+        {
+            <tr>
+                <td>@categorygroup.CagroId</td>
+                <td>@categorygroup.CagroName</td>
+                <td>@categorygroup.CagroType</td>
+                <td>
+                    <div class="action">
+                        <button class="text-dark">
+                            <i class="lni lni-pencil"></i>
+                        </button>
+                        <button class="text-dark" data-bs-toggle="modal" data-bs-target="#deletecagro">
+                            <i class="lni lni-trash-can"></i>
+                        </button>
+                    </div>
+                </td>
+            </tr>
+
+        }
+
+    </tbody>
+</table>
+}
