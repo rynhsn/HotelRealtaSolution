@@ -1,0 +1,133 @@
+﻿@page "/HotelList"
+@using Microsoft.AspNetCore.Components
+
+<div class="container">
+    <div class="row">
+        <!-- Filter Sidebar -->
+        <div class="col-md-3">
+            <h2>Filter by Facility</h2>
+            <form>
+                <div class="form-group">
+                    <div class="form-group">
+                      <label for="inputName">Name</label>
+                      <input type="text" class="form-control" id="inputName" placeholder="Enter hotel name">
+                    </div>
+                    <div class="form-group">
+                      <label for="inputCity">City</label>
+                      <input type="text" class="form-control" id="inputCity" placeholder="Enter city">
+                    </div>
+                    <div class="form-check">
+                        <input class="form-check-input" type="radio" name="facilityRadio" id="facilityParkingRadio" value="parking" @onchange="HandleFilterFacilityChange">
+                        <label class="form-check-label" for="facilityParkingRadio">
+                            Parking
+                        </label>
+                    </div>
+                    <div class="form-check">
+                        <input class="form-check-input" type="radio" name="facilityRadio" id="facilitySecurityRadio" value="security" @onchange="HandleFilterFacilityChange">
+                        <label class="form-check-label" for="facilitySecurityRadio">
+                            Security
+                        </label>
+                    </div>
+                    <div class="form-check">
+                        <input class="form-check-input" type="radio" name="facilityRadio" id="facilityRestaurantRadio" value="restaurant" @onchange="HandleFilterFacilityChange">
+                        <label class="form-check-label" for="facilityRestaurantRadio">
+                            Restaurant
+                        </label>
+                    </div>
+                    <div class="form-check">
+                        <input class="form-check-input" type="radio" name="facilityRadio" id="facilityLaundryRadio" value="laundry" @onchange="HandleFilterFacilityChange">
+                        <label class="form-check-label" for="facilityLaundryRadio">
+                            Laundry
+                        </label>
+                    </div>
+                </div>
+
+                <button type="submit" class="btn btn-primary">Filter</button>
+            </form>
+        </div>
+
+        <!-- Hotel List -->
+        <div class="col-md-9">
+            <h2>Hotels</h2>
+            @foreach (var hotel in Hotels.Where(h => FilterFacility == null || (h.HasParking && FilterFacility == "parking") || (h.HasSecurity && FilterFacility == "security") || (h.HasRestaurant && FilterFacility == "restaurant") || (h.HasLaundry && FilterFacility == "laundry")))
+            {
+                <div class="card">
+                    <a href="@hotel.ImageUrl" target="_blank"><img class="card-img-top" src="@hotel.ThumbnailUrl" alt="@hotel.Name"></a>
+                    <div class="card-body">
+                        <h5 class="card-title">@hotel.Name</h5>
+                        <p class="card-text">@hotel.Description</p>
+                        <div class="card-footer bg-dark-500">
+                            <small class="text-muted">Facilities:</small>
+                            @if (hotel.HasParking)
+                            {
+                                <span class="badge badge-primary">Parking</span>
+                            }
+                            @if (hotel.HasSecurity)
+                            {
+                                <span class="badge badge-primary">Security</span>
+                            }
+                            @if (hotel.HasRestaurant)
+                            {
+                                <span class="badge badge-primary">Restaurant</span>
+                            }
+                            @if (hotel.HasLaundry)
+                            {
+                                <span class="badge badge-primary">Laundry</span>
+                            }
+
+                        </div>
+                        <a href="#" class="btn btn-primary">Book Now</a>
+                    </div>
+                </div>
+            }
+        </div>
+    </div>
+</div>
+
+@code {
+    private string FilterFacility { get; set; }
+
+    private void HandleFilterFacilityChange(ChangeEventArgs e)
+    {
+        FilterFacility = e.Value.ToString();
+    }
+
+    private List<Hotel> Hotels = new List<Hotel>
+    {
+        new Hotel
+        {
+            Name = "Grand Hotel",
+            Description = "A luxurious hotel with world-class amenities",
+            ThumbnailUrl = "https://via.placeholder.com/350x150",
+            ImageUrl = "https://www.example.com/grand-hotel.jpg",
+            HasParking = true,
+            HasSecurity = true,
+            HasRestaurant = true,
+            HasLaundry = false
+        },
+        new Hotel
+        {
+            Name = "Economy Inn",
+            Description = "A budget hotel for the cost-conscious traveler",
+            ThumbnailUrl = "https://via.placeholder.com/350x150",
+            ImageUrl = "https://www.example.com/economy-inn.jpg",
+            HasParking = true,
+            HasSecurity = false,
+            HasRestaurant = false,
+            HasLaundry = false
+        },
+        // Add more hotels here...
+    };
+
+    private class Hotel
+    {
+        public string Name { get; set; }
+        public string Description { get; set; }
+        public string ThumbnailUrl { get; set; }
+        public string ImageUrl { get; set; }
+        public bool HasParking { get; set; }
+        public bool HasSecurity { get; set; }
+        public bool HasRestaurant { get; set; }
+        public bool HasLaundry { get; set; }
+    }
+}
