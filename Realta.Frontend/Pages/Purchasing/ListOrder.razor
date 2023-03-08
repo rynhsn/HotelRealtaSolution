@@ -9,7 +9,7 @@
             <div class="row align-items-center">
                 <div class="col-md-6">
                     <div class="title mb-30">
-                        <h2>Purchasing Order</h2>
+                        <h2>Purchase Order</h2>
                     </div>
                 </div>
                 <!-- end col -->
@@ -18,10 +18,13 @@
                         <nav aria-label="breadcrumb">
                             <ol class="breadcrumb">
                                 <li class="breadcrumb-item">
+                                    <a href="/">Home</a>
+                                </li>
+                                <li class="breadcrumb-item">
                                     <a href="/purchasing">Purchasing</a>
                                 </li>
                                 <li class="breadcrumb-item active" aria-current="page">
-                                    Purchasing Order
+                                    Purchase Order
                                 </li>
                             </ol>
                         </nav>
@@ -76,27 +79,15 @@
                                     <!-- end table row-->
                                 </thead>
                                 <tbody>
-                                @for (int i = 1; i <= 5; i++)
+                                    @for (int i = 1; i <= @TotalRows; i++)
                                 {
                                     <tr>
-                                        <td class="min-width">
-                                            <p>@i</p>
-                                        </td>
-                                        <td class="min-width">
-                                            <p>PO-20230303-00 @i</p>
-                                        </td>
-                                        <td class="min-width">
-                                            <p>2023-03-01</p>
-                                        </td>
-                                        <td class="min-width">
-                                            <p>Cocoalici LLC</p>
-                                        </td>
-                                        <td class="min-width">
-                                            <p>2</p>
-                                        </td>
-                                        <td class="min-width">
-                                            <p>IDR 5,000,000.00</p>
-                                        </td>
+                                        <td class="min-width"><p>@i</p></td>
+                                        <td class="min-width"><p>PO-20230303-00 @i</p></td>
+                                        <td class="min-width"><p>2023-03-01</p></td>
+                                        <td class="min-width"><p>Cocoalici LLC</p></td>
+                                        <td class="min-width"><p>2</p></td>
+                                        <td class="min-width"><p>IDR 5,000,000.00</p></td>
                                         <td class="min-width">
                                             <span class="status-btn success-btn">Pending</span>
                                         </td>
@@ -104,7 +95,7 @@
                                             <div class="dropdown me-1">
                                                 <i class="btn lni lni-more-alt dropdown-toggle" data-bs-toggle="dropdown"></i>
                                                 <ul class="dropdown-menu">
-                                                    <li><a class="dropdown-item btn btn-sm" href="#">Details</a></li>
+                                                    <li><a class="dropdown-item btn btn-sm" href="list-order/PO-20230303-001">Details</a></li>
                                                     <li><hr class="dropdown-divider"></li>
                                                     <li><button class="dropdown-item btn btn-sm" data-bs-toggle="modal" data-bs-target="#detail[@i]">Switch status</button></li>
                                                     <li><hr class="dropdown-divider"></li>
@@ -187,8 +178,7 @@
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             <div class="modal-body">
-                <p>Purchase Order with PO Number: PO-20230303-00 @i will be deleted</p>
-                <p>data that has been deleted cannot be recovered</p>
+                <p>Purchase Order with PO Number: PO-20230303-00 @i will be deleted. data that has been deleted cannot be recovered!</p>
                 <p>Are you sure?</p>
             </div>
             <div class="modal-footer">

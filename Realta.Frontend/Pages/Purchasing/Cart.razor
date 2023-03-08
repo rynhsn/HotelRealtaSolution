@@ -1,0 +1,17 @@
+@page "/Cart"
+<h3>Cart</h3>
+<PageTitle>Cart</PageTitle>
+@foreach (var cart in CartList)
+{   
+    <tr>
+        <td>
+            @cart.CartVeproId
+        </td>
+        <td>
+            @cart.CartOrderQty
+        </td>
+        <td>
+            @cart.CartEmpId
+        </td>
+    </tr>
+}
