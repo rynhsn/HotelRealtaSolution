@@ -54,7 +54,14 @@
                                     <!-- end table row-->
                                 </thead>
                                 <tbody>
-                                    @for (int i = 1; i < 4; i++)
+                                    @foreach (var categorygroup in CategoryGroupList)
+                                    {
+                                        <tr>
+                                            <td>@categorygroup.CagroName</td>
+                                        </tr>
+                                        
+                                    }
+                                   @* @for (int i = 1; i < 4; i++)
                                     {
                                         <tr class="align-content-lg-stretch">
                                             <td>
@@ -85,7 +92,7 @@
                                                 </div>
                                             </td>
                                         </tr>
-                                    }
+                                    }*@
                                 </tbody>
                             </table>
                         </div>
