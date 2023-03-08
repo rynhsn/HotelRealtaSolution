@@ -1,0 +1,17 @@
+﻿
+<div class="card" style="width: 16rem;">
+    <img @attributes="AdditionalAttribute" class="card-img-top">
+    <div class="card-body">
+        <h5 class="card-title">@title</h5>
+        <p class="card-text">@description</p>
+        <a href="#" class="btn btn-primary">Add To Chart</a>
+    </div>
+</div>
+
+@code {
+    [Parameter] public string title { get; set; }
+    [Parameter] public string description { get; set; }
+    [Parameter(CaptureUnmatchedValues = true) ]
+    public Dictionary<String, object>? AdditionalAttribute { get; set; }
+
+}
