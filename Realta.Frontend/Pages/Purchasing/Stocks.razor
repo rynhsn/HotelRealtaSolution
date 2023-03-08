@@ -1,0 +1,77 @@
+﻿@page "/purchasing/stocks"
+
+@using Realta.Frontend.Components
+
+<PageTitle>Stocks</PageTitle>
+
+<section class="table-components">
+    <div class="container-fluid">
+        <!-- ========== title-wrapper start ========== -->
+        <div class="title-wrapper pt-30">
+            <div class="row align-items-center">
+                <div class="col-md-6">
+                    <div class="title mb-30">
+                        <h2>Stocks</h2>
+                    </div>
+                </div>
+                <!-- end col -->
+                <div class="col-md-6">
+                    <div class="breadcrumb-wrapper mb-30">
+                        <nav aria-label="breadcrumb">
+                            <ol class="breadcrumb">
+                                <li class="breadcrumb-item">
+                                    <a href="/purchasing">Purchasing</a>
+                                </li>
+                                <li class="breadcrumb-item active" aria-current="page">
+                                    Stock
+                                </li>
+                            </ol>
+                        </nav>
+                    </div>
+                </div>
+                <!-- end col -->
+            </div>
+            <!-- end row -->
+        </div>
+        <!-- ========== title-wrapper end ========== -->
+        <!-- ========== tables-wrapper start ========== -->
+        <div class="tables-wrapper">
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="card-style mb-30">
+                        <form class="row">
+                            <div class="search col-7">
+                                <div class="input-style-3 rounded-5">
+                                    <input type="text" placeholder="Stock Name">
+                                    <button class="btn icon"><i class="lni lni-search-alt"></i></button>
+                                </div>
+                            </div>
+                            <div class="select-style-1 col-3 rounded-sm">
+                                <div class="select-position">
+                                    <select>
+                                        <option value="1" selected>1=High</option>
+                                        <option value="0">0=Lowest</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="col">
+                                <a href="#0" class="main-btn dark-btn rounded-md btn-hover">Search</a>
+                            </div>
+                        </form>
+                        <div class="table-wrapper table-responsive">
+                           
+                            <Table Stocks="stocksList"/>
+                            <!-- end table -->
+                        </div>
+                    </div>
+                    <!-- end card -->
+                </div>
+                <!-- end col -->
+            </div>
+            <!-- end row -->
+        </div>
+        <!-- ========== tables-wrapper end ========== -->
+    </div>
+    <!-- end container -->
+</section>
+

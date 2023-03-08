@@ -1,0 +1,61 @@
+﻿<table class="table">
+    <thead>
+        <tr>
+            <th><h6>Stock</h6></th>
+            <th><h6>Re-OrderPoint</h6></th>
+            <th><h6>Qty</h6></th>
+            <th><h6>Used</h6></th>
+            <th><h6>Scrap</h6></th>
+            <th><h6>Size - Color</h6></th>
+            <th class="min-width">
+                <h6 class="text-sm text-medium">
+                    <a href="#"> Add +</a>
+                </h6>
+            </th>
+        </tr>
+        <!-- end table row-->
+    </thead>
+    <tbody>
+        @if (Stocks.Count > 0)
+        {
+            @foreach (var stocks in Stocks)
+            {
+                <tr>
+                    <td class="min-width">
+                        <p>@stocks.StockName</p>
+                    </td>
+                    <td class="min-width">
+                        <p>@stocks.StockReorderPoint</p>
+                    </td>
+                    <td class="min-width">
+                        <p>@stocks.StockQuantity</p>
+                    </td>
+                    <td class="min-width">
+                        <p>@stocks.StockUsed</p>
+                    </td>
+                    <td class="min-width">
+                        <p>@stocks.StockScrap</p>
+                    </td>
+                    <td class="min-width">
+                        <p>@stocks.StockSize - @stocks.StockColor</p>
+                    </td>
+                    <td>
+                        <div class="dropdown me-1">
+                            <i class="btn lni lni-more-alt dropdown-toggle" data-bs-toggle="dropdown"></i>
+                            <ul class="dropdown-menu">
+                                <li><button class="dropdown-item btn btn-sm" data-bs-toggle="modal" data-bs-target="#">Edit</button></li>
+                                <li><hr class="dropdown-divider"></li>
+                                <li><button class="dropdown-item btn btn-sm" data-bs-toggle="modal" data-bs-target="#">Upload Foto</button></li>
+                                <li><hr class="dropdown-divider"></li>
+                                <li><a class="dropdown-item btn btn-sm text-danger" href="#">Delete</a></li>
+                                <li><hr class="dropdown-divider"></li>
+                                <li><button class="dropdown-item btn btn-sm" data-bs-toggle="modal" data-bs-target="#">Detail Info Stock</button></li>
+                            </ul>
+                        </div>
+                    </td>
+                </tr>
+            }
+        }
+    </tbody>
+</table>
+
