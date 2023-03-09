@@ -44,93 +44,64 @@
                     <table class="table">
                       <thead>
                         <tr>
+                          <th><h6>#</h6></th>
                           <th><h6>Transaction Number</h6></th>
                           <th><h6>Date</h6></th>
-                          <th><h6><a href="#">Add +</a></h6></th>
+                          <th><h6>Debet</h6></th>
+                          <th><h6>Credit</h6></th>
+                          <th><h6>Note</h6></th>
+                          <th><h6>Order Number</h6></th>
+                          <th><h6>Source</h6></th>
+                          <th><h6>Target</h6></th>
+                          <th><h6>Transaction Ref</h6></th>
+                          <th><h6>Type</h6></th>
+                          <th><h6>User</h6></th>
                         </tr>
                         <!-- end table row-->
                       </thead>
                       <tbody>
+                      @for (int   i = 1;   i < 8;  i++)
+                      {
                         <tr>
                           <td class="min-width">
-                            <div class="min-width">
-                              <div class="lead-text">
-                                <p>GOPAY</p>
-                              </div>
-                            </div>
+                            <p>@i</p>
                           </td>
                           <td class="min-width">
-                            <p>Gojek Tokopedia</p>
+                            <p>TRX#202127-0001</p>
                           </td>
-                          <td>
-                            <div class="action">
-                              <button class="text-gray">
-                                <i class="lni lni-more-alt"></i>
-                              </button>
-                            </div>
+                          <td class="min-width">
+                            <p>12 Jul 2022</p>
+                          </td>
+                          <td class="min-width">
+                            <p>Rp. 10,000,000</p>
+                          </td>
+                          <td class="min-width">
+                            <p>-</p>
+                          </td>
+                          <td class="min-width">
+                            <p>Topup</p>
+                          </td>
+                          <td class="min-width">
+                            <p>-</p>
+                          </td>
+                          <td class="min-width">
+                            <p>131-3456-78</p>
+                          </td>
+                          <td class="min-width">
+                            <p>11-4567-980</p>
+                          </td>
+                          <td class="min-width">
+                            <p>-</p>
+                          </td>
+                          <td class="min-width">
+                            <p>TP</p>
+                          </td>
+                          <td class="min-width">
+                            <p>John Doe</p>
                           </td>
                         </tr>
-                        <!-- end table row -->
-                        <tr>
-                          <td class="min-width">
-                            <div class="lead">
-                              <div class="lead-text">
-                                <p>SHOPEEPAY</p>
-                              </div>
-                            </div>
-                          </td>
-                          <td class="min-width">
-                            <p>Shopee</p>
-                          </td>
-                          <td>
-                            <div class="action">
-                              <button class="text-gray">
-                                <i class="lni lni-more-alt"></i>
-                              </button>
-                            </div>
-                          </td>
-                        </tr>
-                        <!-- end table row -->
-                        <tr>
-                          <td class="min-width">
-                            <div class="lead">
-                              <div class="lead-text">
-                                <p>DANA</p>
-                              </div>
-                            </div>
-                          </td>
-                          <td class="min-width">
-                            <p>PT. Espay Debit Indonesia Koe</p>
-                          </td>
-                          <td>
-                            <div class="action">
-                              <button class="text-gray">
-                                <i class="lni lni-more-alt"></i>
-                              </button>
-                            </div>
-                          </td>
-                        </tr>
-                        <!-- end table row -->
-                        <tr>
-                          <td class="min-width">
-                            <div class="lead">
-                              <div class="lead-text">
-                                <p>FLIP</p>
-                              </div>
-                            </div>
-                          </td>
-                          <td class="min-width">
-                            <p><a href="#">PT Fliptech Lentera Inspirasi Pertiwi</a></p>
-                          </td>
-                          <td>
-                            <div class="action">
-                              <button class="text-gray">
-                                <i class="lni lni-more-alt"></i>
-                              </button>
-                            </div>
-                          </td>
-                        </tr>
-                        <!-- end table row -->
+                      }
+                      <!-- end table row -->
                       </tbody>
                     </table>
                     <!-- end table -->

@@ -43,80 +43,31 @@
 				  <div class="table-wrapper table-responsive">
 					<table class="table">
 					  <thead>
-						<tr>
+					  <tr>
+						  <th><h6>#</h6></th>
 						  <th><h6>Code</h6></th>
 						  <th><h6>Name</h6></th>
 						  <th><h6><a href="#">Add +</a></h6></th>
-						</tr>
+					  </tr>
 						<!-- end table row-->
 					  </thead>
 					  <tbody>
-						<tr>
-						  <td class="min-width">
-							<div class="min-width">
-							  <div class="lead-text">
-								<p>GOPAY</p>
-							  </div>
-							</div>
-						  </td>
-						  <td class="min-width">
-							<p>Gojek Tokopedia</p>
-						  </td>
-						  <td>
-							<ActionPopup />
-						  </td>
-						</tr>
-						<!-- end table row -->
-						<tr>
-						  <td class="min-width">
-							<div class="lead">
-							  <div class="lead-text">
-								<p>SHOPEEPAY</p>
-							  </div>
-							</div>
-						  </td>
-						  <td class="min-width">
-							<p>Shopee</p>
-						  </td>
-						  <td>
-							<ActionPopup />
-						  </td>
-						</tr>
-						<!-- end table row -->
-						<tr>
-						  <td class="min-width">
-							<div class="lead">
-							  <div class="lead-text">
-								<p>DANA</p>
-							  </div>
-							</div>
-						  </td>
-						  <td class="min-width">
-							<p>PT. Espay Debit Indonesia Koe</p>
-						  </td>
-						  <td>
-											<ActionPopup />
-						  </td>
-						</tr>
-						<!-- end table row -->
-						<tr>
-						  <td class="min-width">
-							<div class="lead">
-							  <div class="lead-text">
-								<p>FLIP</p>
-							  </div>
-							</div>
-						  </td>
-						  <td class="min-width">
-							<p><a href="#">PT Fliptech Lentera Inspirasi Pertiwi</a></p>
-						  </td>
-						  <td>
-							<div class="action">
-								<ActionPopup />
-							</div>
-						  </td>
-						</tr>
-						<!-- end table row -->
+					  @for (int i = 1; i < 8; i++)
+					  {
+						  <tr>
+							  <td class="min-width">@i</td>
+							  <td class="min-width">
+								  <p>GOPAY</p>
+							  </td>
+							  <td class="min-width">
+								  <p>Gojek Tokopedia</p>
+							  </td>
+							  <td>
+								  <ActionPopup/>
+							  </td>
+						  </tr>
+						  <!-- end table row -->
+					  }
 					  </tbody>
 					</table>
 					<!-- end table -->
