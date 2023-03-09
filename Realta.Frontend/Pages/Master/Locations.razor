@@ -1,4 +1,5 @@
 ﻿@page "/locations"
+@using Realta.Frontend.Components
 
 <PageTitle>Locations</PageTitle>
 
@@ -22,7 +23,7 @@
                                     <a href="/locations">locations</a>
                                 </li>
                                 <li class="breadcrumb-item active" aria-current="page">
-                                    locations
+                                    location
                                 </li>
                             </ol>
                         </nav>
@@ -40,53 +41,7 @@
                     <div class="card-style mb-30">
                         <h3>Regions</h3>
                         <div class="table-wrapper table-responsive mt-3">
-                            <table class="table">
-                                <thead>
-                                    <tr class="align-content-lg-stretch">
-                                        <th><h6>Region Id</h6></th>
-                                        <th><h6>Region Name</h6></th>
-                                        <th>
-                                            <div class="action">
-                                                <button class="text-dark">
-                                                    <i class="lni lni-plus"></i>
-                                                </button>
-                                            </div>
-                                        </th>
-                                    </tr>
-                                    <!-- end table row-->
-                                </thead>
-                                <tbody>
-                                    @for (int i = 1; i < 4; i++)
-                                    {
-                                        <tr class="align-content-lg-stretch">
-                                            <td>
-                                            <td class="min-width">
-                                                <p>
-                                                        @i
-                                                </p>
-                                            </td>
-                                            </td>
-                                            <td class="min-width">
-                                                <p>
-                                                    BOGOR
-                                                </p>
-                                            </td>
-                                            <td>
-
-                                                <div class="action">
-                                                    <button class="text-dark">
-                                                        <i class="lni lni-pencil"></i>
-                                                    </button>
-                                                    <button class="text-dark">
-                                                        <i class="lni lni-trash-can"></i>
-                                                    </button>
-                                                </div>
-                                            </td>
-                                        </tr>
-
-                                    }
-                                </tbody>
-                            </table>
+                            <RegionsTable Regions="RegionsList" />
                         </div>
                     </div>
                 </div>
@@ -98,54 +53,7 @@
                     <div class="card-style mb-30">
                         <h3>Country</h3>
                         <div class="table-wrapper table-responsive mt-3">
-                            <table class="table">
-                                <thead>
-                                    <tr>
-                                        <th><h6>Country Id</h6></th>
-                                        <th><h6>Country Name</h6></th>
-                                        <th>
-                                            <div class="action">
-                                                <button class="text-dark">
-                                                    <i class="lni lni-plus"></i>
-                                                </button>
-                                            </div>
-                                        </th>
-
-                                    </tr>
-                                    <!-- end table row-->
-                                </thead>
-                                <tbody>
-                                    @for (int i = 1; i < 4; i++)
-                                    {
-                                        <tr>
-                                            <td>
-                                            <td class="min-width">
-                                                <p>
-                                                        @i
-                                                </p>
-                                            </td>
-                                            </td>
-                                            <td class="min-width">
-                                                <p>
-                                                    BOGOR
-                                                </p>
-                                            </td>
-                                            <td>
-
-                                                <div class="action">
-                                                    <button class="text-dark">
-                                                        <i class="lni lni-pencil"></i>
-                                                    </button>
-                                                    <button class="text-dark">
-                                                        <i class="lni lni-trash-can"></i>
-                                                    </button>
-                                                </div>
-                                            </td>
-                                        </tr>
-
-                                    }
-                                </tbody>
-                            </table>
+                            <CountryTable Country="CountryList" />
                             <!-- end table -->
                         </div>
                     </div>
@@ -162,54 +70,7 @@
                     <div class="card-style mb-30">
                         <h3>Provinces</h3>
                         <div class="table-wrapper table-responsive mt-3">
-                            <table class="table">
-                                <thead>
-                                    <tr>
-                                        <th><h6>Provinces Id</h6></th>
-                                        <th><h6>Provinces Name</h6></th>
-                                        <th>
-                                            <div class="action">
-                                                <button class="text-dark">
-                                                    <i class="lni lni-plus"></i>
-                                                </button>
-                                            </div>
-                                        </th>
-
-                                    </tr>
-                                    <!-- end table row-->
-                                </thead>
-                                <tbody>
-                                    @for (int i = 1; i < 4; i++)
-                                    {
-                                        <tr>
-                                            <td>
-                                            <td class="min-width">
-                                                <p>
-                                                        @i
-                                                </p>
-                                            </td>
-                                            </td>
-                                            <td class="min-width">
-                                                <p>
-                                                    BOGOR
-                                                </p>
-                                            </td>
-                                            <td>
-
-                                                <div class="action">
-                                                    <button class="text-dark">
-                                                        <i class="lni lni-pencil"></i>
-                                                    </button>
-                                                    <button class="text-dark">
-                                                        <i class="lni lni-trash-can"></i>
-                                                    </button>
-                                                </div>
-                                            </td>
-                                        </tr>
-
-                                    }
-                                </tbody>
-                            </table>
+                            <ProvincesTable Provinces="ProvincesList"/>             
                             <!-- end table -->
                         </div>
                     </div>
@@ -226,54 +87,7 @@
                     <div class="card-style mb-30">
                         <h3>Address</h3>
                         <div class="table-wrapper table-responsive mt-3">
-                            <table class="table">
-                                <thead>
-                                    <tr>
-                                        <th><h6>Address Id</h6></th>
-                                        <th><h6>Region Name</h6></th>
-                                        <th>
-                                            <div class="action">
-                                                <button class="text-dark">
-                                                    <i class="lni lni-plus"></i>
-                                                </button>
-                                            </div>
-                                        </th>
-
-                                    </tr>
-                                    <!-- end table row-->
-                                </thead>
-                                <tbody>
-                                    @for (int i = 1; i < 4; i++)
-                                    {
-                                        <tr>
-                                            <td>
-                                            <td class="min-width">
-                                                <p>
-                                                        @i
-                                                </p>
-                                            </td>
-                                            </td>
-                                            <td class="min-width">
-                                                <p>
-                                                    BOGOR
-                                                </p>
-                                            </td>
-                                            <td>
-
-                                                <div class="action">
-                                                    <button class="text-dark">
-                                                        <i class="lni lni-pencil"></i>
-                                                    </button>
-                                                    <button class="text-dark">
-                                                        <i class="lni lni-trash-can"></i>
-                                                    </button>
-                                                </div>
-                                            </td>
-                                        </tr>
-
-                                    }
-                                </tbody>
-                            </table>
+                            <AddressTable Address="AddressList"/>  
                             <!-- end table -->
                         </div>
                     </div>

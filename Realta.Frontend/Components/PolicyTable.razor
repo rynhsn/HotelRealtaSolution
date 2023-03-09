@@ -1,14 +1,15 @@
-﻿@if (CategoryGroups.Count > 0)
+﻿@using Realta.Frontend.Pages.Master
+@if (Policy.Count > 0)
 {
-    <table class="table">
+    <table class="table table-sm">
         <thead>
-            <tr class="align-content-lg-stretch">
-                <th><h6>Category Id</h6></th>
-                <th><h6>Category Name</h6></th>
-                <th><h6>Type</h6></th>
+            <tr>
+                <th scope="col"><h6>ID</h6></th>
+                <th scope="col"><h6>Policy Name</h6></th>
+                <th style="width: 800px;" ><h6>Policy Description</h6></th>
                 <th>
-                    <div class="action" data-bs-toggle="modal" data-bs-target="#addcagro">
-                        <button type="button" class="text-dark">
+                    <div class="action">
+                        <button class="text-dark">
                             <i class="lni lni-plus"></i>
                         </button>
                     </div>
@@ -17,26 +18,27 @@
             <!-- end table row-->
         </thead>
         <tbody>
-            @foreach (var categorygroup in CategoryGroups)
+            @foreach (var policy in Policy)
             {
                 <tr>
-                    <td>@categorygroup.CagroId</td>
-                    <td>@categorygroup.CagroName</td>
-                    <td>@categorygroup.CagroType</td>
+                    <td>@policy.PoliId</td>
+                    <td>@policy.PoliName</td>
+                    <td>@policy.PoliDescription</td>
+
+
                     <td>
                         <div class="action">
                             <button class="text-dark">
                                 <i class="lni lni-pencil"></i>
                             </button>
-                            <button class="text-dark" data-bs-toggle="modal" data-bs-target="#deletecagro">
+                            <button class="text-dark">
                                 <i class="lni lni-trash-can"></i>
                             </button>
                         </div>
                     </td>
                 </tr>
-
             }
-
         </tbody>
     </table>
+
 }

@@ -1,4 +1,5 @@
 ﻿@page "/policy"
+@using Realta.Frontend.Components
 <PageTitle>Policy</PageTitle>
 
 <section class="table-components">
@@ -37,47 +38,8 @@
                 <div class="col-lg-12">
                     <div class="card-style mb-30">
                         <div class="table-wrapper table-responsive">
-                            <table class="table">
-                                <thead>
-                                    <tr>
-                                        <th><h6>Policy ID</h6></th>
-                                        <th><h6>Policy Name</h6></th>
-                                        <th>
-                                            <div class="action">
-                                                <button class="text-dark">
-                                                    <i class="lni lni-plus"></i>
-                                                </button>
-                                            </div>
-                                        </th>
-                                    </tr>
-                                    <!-- end table row-->
-                                </thead>
-                                <tbody>
-                                    @for (int i = 1; i <= 3; i++)
-                                    {
-                                        <tr>
-                                            <td class="min-width">
-                                                <p>@i</p>
-                                            </td>
-                                            <td class="min-width">
-                                                <p>Members</p>
-                                            </td>
-
-                                            <td>
-                                                <div class="action">
-                                                    <button class="text-dark">
-                                                        <i class="lni lni-pencil"></i>
-                                                    </button>
-                                                    <button class="text-dark">
-                                                        <i class="lni lni-trash-can"></i>
-                                                    </button>
-                                                </div>
-                                            </td>
-                                        </tr>
-                                    }
-                                </tbody>
-                            </table>
-                        </div>
+                            <PolicyTable Policy="PolicyList"/>
+                            </div>
                     </div>
                 </div>
             </div>

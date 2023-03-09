@@ -1,6 +1,6 @@
 ﻿using Realta.Contract.Models;
 
-namespace Realta.Frontend.HttpRepository
+namespace Realta.Frontend.HttpRepository.CategoryGroup
 {
     public interface ICategoryGroupHttpRepository
     {

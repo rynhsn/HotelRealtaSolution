@@ -1,0 +1,42 @@
+﻿@if (priceItems.Count > 0)
+{
+    <table class="table">
+        <thead>
+            <tr>
+                <th><h6>ID</h6></th>
+                <th><h6>Item Name</h6></th>
+                <th><h6>Price</h6></th>
+                <th><h6>Type</h6></th>
+                <th>
+                    <div class="action" data-bs-toggle="modal" data-bs-target="#addpriceitems">
+                        <button type="button" class="text-dark">
+                            <i class="lni lni-plus"></i>
+                        </button>
+                    </div>
+                </th>
+            </tr>
+            <!-- end table row-->
+        </thead>
+        <tbody>
+            @foreach (var priceitem in priceItems)
+            {
+                <tr>
+                    <td>@priceitem.PritId</td>
+                    <td>@priceitem.PritName</td>
+                    <td class="text-sm">Rp. @string.Format("{0:n0}", priceitem.PritPrice)</td>
+                    <td>@priceitem.PritType</td>
+                    <td>
+                        <div class="action">
+                            <button class="text-dark">
+                                <i class="lni lni-pencil"></i>
+                            </button>
+                            <button class="text-dark" data-bs-toggle="modal" data-bs-target="#deletepriceitems ">
+                                <i class="lni lni-trash-can"></i>
+                            </button>
+                        </div>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+}
