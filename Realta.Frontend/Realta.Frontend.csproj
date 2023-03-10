@@ -1,4 +1,4 @@
-﻿<Project Sdk="Microsoft.NET.Sdk.BlazorWebAssembly">
+<Project Sdk="Microsoft.NET.Sdk.BlazorWebAssembly">
 
   <PropertyGroup>
     <TargetFramework>net6.0</TargetFramework>
@@ -18,9 +18,12 @@
     <PackageReference Include="System.Net.Http.Json" Version="7.0.0" />
   </ItemGroup>
 
-
   <ItemGroup>
     <ProjectReference Include="..\..\..\RealtaHotelPurchasing\Realta.Contract\Realta.Contract.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="Pages\Payments" />
+  </ItemGroup>
+  
 </Project>
