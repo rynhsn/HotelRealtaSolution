@@ -1,4 +1,4 @@
-﻿using Realta.Contract;
+﻿using Realta.Contract.Models;
 using System.Text.Json;
 
 namespace Realta.Frontend.HttpRepository
@@ -17,8 +17,8 @@ namespace Realta.Frontend.HttpRepository
         public async Task<List<StockDetailDto>> GetStockDetail(int id)
         {
             // call api end point e.g : http://localhost:7068/api/stock/{id}
-            string stockId = "stock/" + id;
-            var response = await _httpClient.GetAsync(stockId);
+            var url = Path.Combine("stock", id.ToString());
+            var response = await _httpClient.GetAsync(url);
             var content = await response.Content.ReadAsStringAsync();
 
             if (!response.IsSuccessStatusCode)

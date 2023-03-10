@@ -1,5 +1,5 @@
 ﻿using Microsoft.AspNetCore.Components;
-using Realta.Contract;
+using Realta.Contract.Models;
 
 namespace Realta.Frontend.Components
 {

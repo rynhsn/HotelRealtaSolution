@@ -1,12 +1,12 @@
 ﻿using Microsoft.AspNetCore.Components;
-using Realta.Contract;
+using Realta.Contract.Models;
 using Realta.Frontend.HttpRepository;
 
 namespace Realta.Frontend.Pages.Purchasing
 {
     public partial class StockDetail
     {
-        [Parameter] public int StockId { get; set; }
+        [Parameter] public int Id { get; set; }
         public List<StockDetailDto> stockDetailList { get; set; } = new List<StockDetailDto>();
 
         [Inject]
@@ -14,7 +14,7 @@ namespace Realta.Frontend.Pages.Purchasing
 
         protected async override Task OnInitializedAsync()
         {
-            stockDetailList = await StockDetailRepo.GetStockDetail(StockId);
+            stockDetailList = await StockDetailRepo.GetStockDetail(Id);
         }
     }
 }

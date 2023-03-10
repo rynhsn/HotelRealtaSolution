@@ -11,5 +11,6 @@ builder.RootComponents.Add<HeadOutlet>("head::after");
 builder.Services.AddScoped(sp => new HttpClient { BaseAddress = new Uri("https://localhost:7068/api/") });
 builder.Services.AddScoped<ICartHttpRepository, CartHttpRepository>();
 builder.Services.AddScoped<IStocksRepository, StockRepository>();
+builder.Services.AddScoped<IStockDetailRepository, StockDetailRepository>();
 
 await builder.Build().RunAsync();

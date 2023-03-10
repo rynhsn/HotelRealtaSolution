@@ -1,5 +1,5 @@
 ﻿using Microsoft.AspNetCore.Components;
-using Realta.Contract;
+using Realta.Contract.Models;
 using Realta.Frontend.HttpRepository;
 
 namespace Realta.Frontend.Pages.Purchasing

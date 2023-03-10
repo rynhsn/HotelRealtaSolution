@@ -1,4 +1,4 @@
-﻿using Realta.Contract;
+﻿using Realta.Contract.Models;
 using System.Text.Json;
 
 namespace Realta.Frontend.HttpRepository

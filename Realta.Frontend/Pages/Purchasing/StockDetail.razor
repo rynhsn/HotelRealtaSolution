@@ -1,4 +1,4 @@
-﻿@page "/purchasing/stock/{id}"
+﻿@page "/purchasing/stock/{Id:int}"
 
 @using Realta.Frontend.Components
 
@@ -11,7 +11,7 @@
             <div class="row align-items-center">
                 <div class="col-md-6">
                     <div class="title mb-30">
-                        <h2>Stocks</h2>
+                        <h2>@stockDetailList[0].StockName</h2>
                     </div>
                 </div>
                 <!-- end col -->
@@ -39,35 +39,15 @@
             <div class="row">
                 <div class="col-lg-12">
                     <div class="card-style mb-30">
-                        <form class="row">
-                            <div class="search col-7">
-                                <div class="input-style-3 rounded-5">
-                                    <input type="text" placeholder="Stock Name">
-                                    <button class="btn icon"><i class="lni lni-search-alt"></i></button>
-                                </div>
-                            </div>
-                            <div class="select-style-1 col-3 rounded-sm">
-                                <div class="select-position">
-                                    <select>
-                                        <option value="1" selected>1=High</option>
-                                        <option value="0">0=Lowest</option>
-                                    </select>
-                                </div>
-                            </div>
-                            <div class="col">
-                                <a href="#0" class="main-btn dark-btn rounded-md btn-hover">Search</a>
-                            </div>
-                        </form>
                         <div class="table-wrapper table-responsive">
                            <table class="table">
                                 <thead>
                                     <tr>
-                                        <th><h6>Stock</h6></th>
-                                        <th><h6>Re-OrderPoint</h6></th>
-                                        <th><h6>Qty</h6></th>
+                                        <th><h6>Barcode</h6></th>
+                                        <th><h6>Status</h6></th>
+                                        <th><h6>Notes</h6></th>
+                                        <th><h6>Po Number</h6></th>
                                         <th><h6>Used</h6></th>
-                                        <th><h6>Scrap</h6></th>
-                                        <th><h6>Size - Color</h6></th>
                                         <th class="min-width">
                                             <h6>Action</h6>
                                         </th>
@@ -75,31 +55,49 @@
                                     <!-- end table row-->
                                 </thead>
                                 <tbody>
-                                   @foreach (var stockDetail in stockDetailList)
+                                   @if (stockDetailList.Count > 0)
                                     {
-                                        <tr>
-                                            <td class="min-width">
-                                                <p>@stockDetail.StodBarcodeNumber</p>
-                                            </td>
-                                            <td class="min-width">
-                                                <p>@stockDetail.StodStatus</p>
-                                            </td>
-                                            <td class="min-width">
-                                                <p>@stockDetail.StodNotes</p>
-                                            </td>
-                                            <td class="min-width">
-                                                <p>@stockDetail.StodPoNumber</p>
-                                            </td>
-                                            <td class="min-width">
-                                                <p>@stockDetail.StodFaciId</p>
-                                            </td>
-                                            <td class="min-width">
-                                                <a>
-                                                    <i class="lni lni-pencil"/>
-                                                    <span>edit</span>
-                                                </a>
-                                            </td>
-                                        </tr>
+                                        @foreach (var stockDetail in stockDetailList)
+                                        {
+                                            <tr>
+                                                <td class="min-width">
+                                                    <p>@stockDetail.StodBarcodeNumber</p>
+                                                </td>
+                                                <td class="min-width">
+                                                    @if (@stockDetail.StodStatus == "1 ")
+                                                    {
+                                                        <p>Stocked</p>
+                                                    }
+                                                    else if (@stockDetail.StodStatus == "2 ")
+                                                    {
+                                                        <p>Expired</p>
+                                                    }
+                                                    else if (@stockDetail.StodStatus == "3 ")
+                                                    {
+                                                        <p>Broken</p>
+                                                    }
+                                                    else if (@stockDetail.StodStatus == "4 ")
+                                                    {
+                                                        <p>Used</p>
+                                                    }
+                                                </td>
+                                                <td class="min-width">
+                                                    <p>@stockDetail.StodNotes</p>
+                                                </td>
+                                                <td class="min-width">
+                                                    <p>@stockDetail.StodPoNumber</p>
+                                                </td>
+                                                <td class="min-width">
+                                                    <p>@stockDetail.FaciRoomNumber</p>
+                                                </td>
+                                                <td class="min-width">
+                                                    <a>
+                                                        <i class="lni lni-pencil" />
+                                                        <span>edit</span>
+                                                    </a>
+                                                </td>
+                                            </tr>
+                                        }
                                     }
                                 </tbody>
                             </table>
@@ -117,5 +115,70 @@
     <!-- end container -->
 </section>
 
+
+<div class="modal fade" id="createStock" aria-labelledby="createStockLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <form class="modal-content" action="" method="post">
+            <div class="modal-header">
+                <h5 class="modal-title" id="createStockLabel">Create Stock</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <div class="row">
+                    <div class="col-8">
+                        <div class="input-style-1">
+                            <label>Stock</label>
+                            <input type="text">
+                        </div>
+                    </div>
+                    <div class="col-4">
+                        <div class="input-style-1">
+                            <label>Re-Order Point</label>
+                            <input type="number">
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-4">
+                        <div class="input-style-1">
+                            <label>Quantity</label>
+                            <input type="number">
+                        </div>
+                    </div>
+                    <div class="col-4">
+                        <div class="input-style-1">
+                            <label>Used</label>
+                            <input type="number">
+                        </div>
+                    </div>
+                    <div class="col-4">
+                        <div class="input-style-1">
+                            <label>Scrap</label>
+                            <input type="number">
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-6">
+                        <div class="input-style-1">
+                            <label>Size</label>
+                            <input type="text">
+                        </div>
+                    </div>
+                    <div class="col-6">
+                        <div class="input-style-1">
+                            <label>Color</label>
+                            <input type="text">
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                <button type="submit" class="btn btn-primary">Save changes</button>
+            </div>
+        </form>
+    </div>
+</div>
 
 
