@@ -1,4 +1,4 @@
-﻿using Realta.Contract.Models;
+﻿using BlazorWasm.Component;
 using System.Text.Json;
 
 namespace Realta.Frontend.HttpRepository

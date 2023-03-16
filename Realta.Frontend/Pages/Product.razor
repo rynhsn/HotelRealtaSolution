@@ -1,0 +1,26 @@
+﻿@page "/product"
+
+@using BlazorWasm.Component
+
+
+<h3>Product</h3>
+
+<div class="container">
+    <div class="row">
+        @for (int i = 0; i < 8; i++)
+        {
+            <div class="col">
+                <Card Title="Sepeda" Description="Sepeda listrik"
+                  src="https://www.bing.com/th?id=OIP.AjDfXfDND8mj8NkGuf-S1wHaId&w=157&h=185&c=8&rs=1&qlt=90&o=6&pid=3.1&rm=2" 
+                  alt="product01"
+                  />
+            </div>
+        }
+
+
+    </div>
+</div>
+
+@code {
+
+}

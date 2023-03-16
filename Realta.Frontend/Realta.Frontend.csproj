@@ -1,4 +1,4 @@
-<Project Sdk="Microsoft.NET.Sdk.BlazorWebAssembly">
+﻿<Project Sdk="Microsoft.NET.Sdk.BlazorWebAssembly">
 
   <PropertyGroup>
     <TargetFramework>net6.0</TargetFramework>
@@ -20,6 +20,18 @@
 
   <ItemGroup>
     <ProjectReference Include="C:\Users\User\source\repos\HotelRealtaAPI\Realta.Contract\Realta.Contract.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <_ContentIncludedByDefault Remove="Pages\Booking\HotelList.razor" />
+    <_ContentIncludedByDefault Remove="Pages\Booking\HotelListFacilities.razor" />
+    <_ContentIncludedByDefault Remove="Pages\Booking\Invoice.razor" />
+    <_ContentIncludedByDefault Remove="Pages\Booking\ModifyBooking.razor" />
+    <_ContentIncludedByDefault Remove="Pages\Booking\Special_Offers.razor" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="Components" />
   </ItemGroup>
 
 </Project>
